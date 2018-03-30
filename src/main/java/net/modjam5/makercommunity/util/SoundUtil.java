@@ -1,13 +1,16 @@
 package net.modjam5.makercommunity.util;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Random;
+
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.modjam5.makercommunity.BaseMod;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import net.modjam5.makercommunity.common.Instrument;
+import net.modjam5.makercommunity.worldmusic.MusicWorldHelper;
 
 /**
  * @author Tim Biesenbeek
@@ -25,6 +28,19 @@ public class SoundUtil {
 		sounds.put(name, soundEvent);
 
 		return soundEvent;
+	}
+
+	public static SoundEvent find(Instrument instrument) {
+		Optional<SoundEvent> optionalSoundEvent = Optional.empty();
+		while (!optionalSoundEvent.isPresent()) {
+			int key = new Random().nextInt(MusicWorldHelper.NUMBERS) + 1;
+			optionalSoundEvent = find(instrument, key);
+		}
+		return optionalSoundEvent.get();
+	}
+
+	public static Optional<SoundEvent> find(Instrument instrument, int key) {
+		return Optional.ofNullable(sounds.get("insturment." + key + "." + instrument.toInstrumentName()));
 	}
 
 	public static Optional<SoundEvent> find(String name) {

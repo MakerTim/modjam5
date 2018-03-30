@@ -12,6 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.modjam5.makercommunity.BaseMod;
+import net.modjam5.makercommunity.worldmusic.MusicItem;
 
 /**
  * @author Tim Biesenbeek
@@ -19,6 +20,11 @@ import net.modjam5.makercommunity.BaseMod;
 public class ItemRegistry {
 
 	public static Item debug;
+	public static Item drums;
+	public static Item flute;
+	public static Item guitar;
+	public static Item steeldrum;
+	public static Item whistle;
 	public static Item[] items = new Item[0];
 
 	public static void register() {
@@ -26,8 +32,13 @@ public class ItemRegistry {
 			System.out.println(player);
 			return EnumActionResult.PASS;
 		});
+		drums = new MusicItem("drums", Instrument.DRUMS);
+		flute = new MusicItem("flute", Instrument.FLUTE);
+		guitar = new MusicItem("guitar", Instrument.GUITAR);
+		steeldrum = new MusicItem("steeldrum", Instrument.STEELDRUM);
+		whistle = new MusicItem("whistle", Instrument.WHISTLE);
 
-		items = new Item[]{debug};
+		items = new Item[]{debug, drums, flute, guitar, steeldrum, whistle};
 	}
 
 	public static Item register(String name) {
