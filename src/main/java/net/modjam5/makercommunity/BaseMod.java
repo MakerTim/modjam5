@@ -30,23 +30,23 @@ public class BaseMod {
 	@SideOnly(Side.CLIENT)
 	@EventHandler
 	public void preInitClient(FMLPreInitializationEvent event) {
-		registry = new ClientRegistry();
+		registry = new ClientRegistry(event);
 	}
 
 	@SideOnly(Side.SERVER)
 	@EventHandler
 	public void preInitServer(FMLPreInitializationEvent event) {
-		registry = new ClientRegistry();
+		registry = new ClientRegistry(event);
 	}
 
 	@EventHandler
 	public void preInitServer(FMLInitializationEvent event) {
 		registry.init(event);
 	}
-	
+
 	@EventHandler
 	public void startWorld(FMLServerStartingEvent event) {
 		registry.startWorld(event);
 	}
-	
+
 }
