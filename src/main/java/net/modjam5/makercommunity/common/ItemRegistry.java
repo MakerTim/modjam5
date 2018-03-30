@@ -1,5 +1,7 @@
 package net.modjam5.makercommunity.common;
 
+import java.util.function.Function;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -11,21 +13,21 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.modjam5.makercommunity.BaseMod;
 
-import java.util.function.Function;
-import java.util.function.Supplier;
-
 /**
  * @author Tim Biesenbeek
  */
 public class ItemRegistry {
 
 	public static Item debug;
+	public static Item[] items = new Item[0];
 
 	public static void register() {
 		debug = register("debug", (player) -> {
-            System.out.println(player);
+			System.out.println(player);
 			return EnumActionResult.PASS;
 		});
+
+		items = new Item[]{debug};
 	}
 
 	public static Item register(String name) {
@@ -42,10 +44,10 @@ public class ItemRegistry {
 				return onClick.apply(player);
 			}
 		};
-		item.setUnlocalizedName(name);
+		item.setUnlocalizedName(BaseMod.MODID + "." + name);
 		item.setRegistryName(new ResourceLocation(BaseMod.MODID, name));
 		item.setCreativeTab(CreativeTabs.TRANSPORTATION);
-		return new Item();
+		return item;
 	}
 
 }
