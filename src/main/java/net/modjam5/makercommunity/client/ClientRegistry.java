@@ -1,13 +1,9 @@
 package net.modjam5.makercommunity.client;
 
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.modjam5.makercommunity.common.Registry;
 import net.modjam5.makercommunity.util.SoundUtil;
 import net.modjam5.makercommunity.worldmusic.MusicWorldHelper;
-
-import java.util.Optional;
 
 /**
  * @author Tim Biesenbeek
