@@ -18,10 +18,12 @@ public class SoundUtil {
 
 	public static SoundEvent register(String name) {
 		ResourceLocation resourceLocation = new ResourceLocation(BaseMod.MODID, name);
+
 		SoundEvent soundEvent = new SoundEvent(resourceLocation);
 		soundEvent.setRegistryName(name);
 		ForgeRegistries.SOUND_EVENTS.register(soundEvent);
 		sounds.put(name, soundEvent);
+
 		return soundEvent;
 	}
 

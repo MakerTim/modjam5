@@ -8,7 +8,4 @@ import net.modjam5.makercommunity.common.Registry;
  */
 public class ServerRegistry extends Registry {
 
-	public ServerRegistry(FMLPreInitializationEvent event) {
-		super(event);
-	}
 }

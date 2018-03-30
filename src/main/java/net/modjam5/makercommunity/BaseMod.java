@@ -1,5 +1,6 @@
 package net.modjam5.makercommunity;
 
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
@@ -20,23 +21,13 @@ public class BaseMod {
 
 	public static Logger logger;
 
-	private Registry registry;
+	@SidedProxy(clientSide = "net.modjam5.makercommunity.client.ClientRegistry", serverSide = "net.modjam5.makercommunity.server.ServerRegistry")
+	private static Registry registry;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
-	}
-
-	@SideOnly(Side.CLIENT)
-	@EventHandler
-	public void preInitClient(FMLPreInitializationEvent event) {
-		registry = new ClientRegistry(event);
-	}
-
-	@SideOnly(Side.SERVER)
-	@EventHandler
-	public void preInitServer(FMLPreInitializationEvent event) {
-		registry = new ClientRegistry(event);
+		registry.preInit(event);
 	}
 
 	@EventHandler
