@@ -7,6 +7,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.modjam5.makercommunity.common.world.StructureRegister;
 
 /**
  * @author Tim Biesenbeek
@@ -18,7 +20,7 @@ public class Registry {
 	}
 
 	public void init(FMLInitializationEvent event) {
-
+		GameRegistry.registerWorldGenerator(new StructureRegister(), 5);
 	}
 
 	@SubscribeEvent
