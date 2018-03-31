@@ -1,10 +1,14 @@
 package net.modjam5.makercommunity.common.world;
 
+import java.util.Arrays;
+import java.util.Optional;
 import java.util.Random;
 
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.modjam5.makercommunity.common.world.structure.BeachStructure;
 import net.modjam5.makercommunity.common.world.structure.Structure;
@@ -15,7 +19,7 @@ import net.modjam5.makercommunity.common.world.structure.Structure;
 @SuppressWarnings("unchecked")
 public class StructureRegister implements IWorldGenerator {
 
-	private static final Class<? extends Structure>[] classes = new Class[]{BeachStructure.class};
+	public static final Class<? extends Structure>[] classes = new Class[]{BeachStructure.class};
 	private Structure[] structures = new Structure[classes.length];
 
 	public StructureRegister() {
@@ -26,6 +30,25 @@ public class StructureRegister implements IWorldGenerator {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public static Optional<Class<? extends Structure>> findClassByName(String name) {
+		return Arrays.stream(classes).filter(cls -> cls.getSimpleName().equals(name)).findFirst();
+	}
+
+	public Optional<BlockPos> findClosestStructure(Class<? extends Structure> structureClass, World world, BlockPos pos) {
+		Optional<BlockPos> optionalBlockPos = Optional.empty();
+		for (Structure structure : structures) {
+			if (structure.getClass() != structureClass) {
+				continue;
+			}
+			if (structure instanceof MapGenStructure) {
+				optionalBlockPos = Optional
+						.ofNullable(((MapGenStructure) structure).getNearestStructurePos(world, pos, true));
+			}
+
+		}
+		return optionalBlockPos;
 	}
 
 	@Override
