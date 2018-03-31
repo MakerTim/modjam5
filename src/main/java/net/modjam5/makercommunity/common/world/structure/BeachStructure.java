@@ -1,6 +1,6 @@
 package net.modjam5.makercommunity.common.world.structure;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -22,7 +22,7 @@ import net.minecraft.world.gen.structure.StructureStart;
 public class BeachStructure extends MapGenStructure implements Structure {
 
 	private static final StructureBoundingBox boundingBox = new StructureBoundingBox(new int[]{0, 0, 0, 11, 6, 11});
-	public static final List<Biome> ALLOWED_BIOMES = Arrays.asList(Biomes.BEACH);
+	private static final List<Biome> ALLOWED_BIOMES = Collections.singletonList(Biomes.BEACH);
 
 	@Override
 	public void updateWorld(World world) {
