@@ -20,7 +20,7 @@ public class SoundUtil {
 	private static final Map<String, SoundEvent> sounds = new HashMap<>();
 
 	public static void register(Instrument instrument, int number) {
-		for (int part = 0; part < 12; part++) {
+		for (int part = 0; part < MusicWorldHelper.NUMBER_MAPPING[number - 1]; part++) {
 			String name = toResourceName(instrument, number, part);
 			ResourceLocation resourceLocation = new ResourceLocation(BaseMod.MODID, name);
 
@@ -32,12 +32,9 @@ public class SoundUtil {
 	}
 
 	public static SoundEvent find(Instrument instrument, int part) {
-		Optional<SoundEvent> optionalSoundEvent = Optional.empty();
-		while (!optionalSoundEvent.isPresent()) {
-			int key = new Random().nextInt(MusicWorldHelper.NUMBERS) + 1;
-			optionalSoundEvent = find(instrument, key, part);
-		}
-		return optionalSoundEvent.get();
+		int key = new Random().nextInt(MusicWorldHelper.NUMBERS) + 1;
+		Optional<SoundEvent> optionalSoundEvent = find(instrument, key, part);
+		return optionalSoundEvent.orElse(SoundEvent.REGISTRY.getObject(new ResourceLocation("entity.villager.no")));
 	}
 
 	public static Optional<SoundEvent> find(Instrument instrument, int key, int part) {
