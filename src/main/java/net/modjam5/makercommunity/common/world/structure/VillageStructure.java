@@ -16,6 +16,7 @@ import net.minecraft.init.Biomes;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -86,7 +87,7 @@ public class VillageStructure extends MapGenStructure implements Structure {
 				VILLAGE_SPAWN_BIOMES);
 
 			if (flag) {
-				return true;
+				return random.nextBoolean();
 			}
 		}
 
@@ -97,14 +98,14 @@ public class VillageStructure extends MapGenStructure implements Structure {
 	protected StructureStart getStructureStart(int chunkX, int chunkZ) {
 		return new Start(this, chunkX, chunkZ);
 	}
-	
+
 	public void generate(World world, Random random, int xPos, int zPos) {
 		int i = xPos + random.nextInt(15);
 		int k = zPos + random.nextInt(15);
 
 		int chunkX = i >> 4;
 		int chunkZ = k >> 4;
-		int height = world.getChunkFromChunkCoords(chunkX, chunkZ).getHeight(new BlockPos(i & 0xF, 0, k & 0xF));
+		int height = world.getChunkFromChunkCoords(chunkX, chunkZ).getHeight(new BlockPos(i & 0xF, 0, k & 0xF)) + 35;
 
 		int j = height - 1;
 		Entity zombie = EntityList.newEntity(EntityZombie.class, world);
@@ -113,13 +114,12 @@ public class VillageStructure extends MapGenStructure implements Structure {
 			zombie.setLocationAndAngles(i + 7.5, j + 11.0, k + 12.821350744582702, world.rand.nextFloat() * 360F, 0);
 			world.spawnEntity(zombie);
 		}
-		Entity itemFrame = EntityList.newEntity(EntityItemFrame.class, world);
-		if (itemFrame instanceof EntityItemFrame) {
-			itemFrame.setLocationAndAngles(i + 12.5, j + 17.5, k + 8, 0, 0);
-			world.spawnEntity(itemFrame);
-			((EntityItemFrame) itemFrame).setDisplayedItem(MapStructureHelper.buildMapFor(
-				Registry.structureRegister.byClass(BeachStructure.class), world, itemFrame.getPosition()));
-		}
+		BlockPos framePos = new BlockPos(i + 12.5, j + 17.5, k + 8);
+		EntityItemFrame entityitemframe = new EntityItemFrame(world, framePos, EnumFacing.SOUTH);
+		entityitemframe.setDisplayedItem(
+			MapStructureHelper.buildMapFor(Registry.structureRegister.byClass(BeachStructure.class), world, framePos));
+		world.spawnEntity(entityitemframe);
+
 		VillageStructure1.gen(world, i, j, k);
 		VillageStructure2.gen(world, i, j, k);
 	}

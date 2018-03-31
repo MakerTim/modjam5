@@ -536,7 +536,6 @@ public class VillageStructure2 {
         world.setBlockState(new BlockPos(i + 1, j + 11, k + 9), Block.getBlockById(31).getStateFromMeta(1), 3);
         world.setBlockState(new BlockPos(i + 3, j + 11, k + 9), Block.getBlockById(111).getStateFromMeta(0), 3);
         world.setBlockState(new BlockPos(i + 6, j + 11, k + 9), Block.getBlockById(175).getStateFromMeta(2), 3);
-        world.setBlockState(new BlockPos(i + 10, j + 11, k + 9), Block.getBlockById(71).getStateFromMeta(0), 3);
         world.setBlockState(new BlockPos(i + 11, j + 11, k + 9), Block.getBlockById(70).getStateFromMeta(0), 3);
         world.setBlockState(new BlockPos(i + 13, j + 11, k + 9), Block.getBlockById(134).getStateFromMeta(0), 3);
         world.setBlockState(new BlockPos(i + 14, j + 11, k + 9), Block.getBlockById(251).getStateFromMeta(0), 3);
@@ -633,7 +632,6 @@ public class VillageStructure2 {
         world.setBlockState(new BlockPos(i + 10, j + 12, k + 8), Block.getBlockById(251).getStateFromMeta(0), 3);
         world.setBlockState(new BlockPos(i + 14, j + 12, k + 8), Block.getBlockById(251).getStateFromMeta(0), 3);
         world.setBlockState(new BlockPos(i + 6, j + 12, k + 9), Block.getBlockById(175).getStateFromMeta(11), 3);
-        world.setBlockState(new BlockPos(i + 10, j + 12, k + 9), Block.getBlockById(71).getStateFromMeta(8), 3);
         world.setBlockState(new BlockPos(i + 14, j + 12, k + 9), Block.getBlockById(101).getStateFromMeta(0), 3);
         world.setBlockState(new BlockPos(i + 16, j + 12, k + 9), Block.getBlockById(175).getStateFromMeta(11), 3);
         world.setBlockState(new BlockPos(i + 7, j + 12, k + 10), Block.getBlockById(175).getStateFromMeta(11), 3);
@@ -1271,5 +1269,7 @@ public class VillageStructure2 {
         world.setBlockState(new BlockPos(i + 10, j + 22, k + 11), Block.getBlockById(76).getStateFromMeta(5), 3);
         world.setBlockState(new BlockPos(i + 6, j + 22, k + 15), Block.getBlockById(76).getStateFromMeta(5), 3);
         world.setBlockState(new BlockPos(i + 14, j + 22, k + 15), Block.getBlockById(76).getStateFromMeta(5), 3);
+        world.setBlockState(new BlockPos(i + 10, j + 11, k + 9), Block.getBlockById(71).getStateFromMeta(0), 3);
+        world.setBlockState(new BlockPos(i + 10, j + 12, k + 9), Block.getBlockById(71).getStateFromMeta(8), 3);
     }
 }
