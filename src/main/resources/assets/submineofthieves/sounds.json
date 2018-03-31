@@ -1,0 +1,52 @@
+{
+  "instrument_1_drums": {
+    "category": "block",
+    "subtitle": "submineofthieves.insturument.drums",
+    "sounds": [
+      {
+        "name":"submineofthieves:instrument/1/drums",
+        "stream": true
+      }
+    ]
+  },
+  "instrument_1_flute": {
+    "category": "block",
+    "subtitle": "submineofthieves.insturument.flute",
+    "sounds": [
+      {
+        "name":"submineofthieves:instrument/1/flute",
+        "stream": true
+      }
+    ]
+  },
+  "instrument_1_guitar": {
+    "category": "block",
+    "subtitle": "submineofthieves.insturument.guitar",
+    "sounds": [
+      {
+        "name":"submineofthieves:instrument/1/guitar",
+        "stream": true
+      }
+    ]
+  },
+  "instrument_1_steeldrum": {
+    "category": "block",
+    "subtitle": "submineofthieves.insturument.steeldrum",
+    "sounds": [
+      {
+        "name":"submineofthieves:instrument/1/steeldrum",
+        "stream": true
+      }
+    ]
+  },
+  "instrument_1_whislte": {
+    "category": "block",
+    "subtitle": "submineofthieves.insturument.whislte",
+    "sounds": [
+      {
+        "name":"submineofthieves:instrument/1/whislte",
+        "stream": true
+      }
+    ]
+  }
+}

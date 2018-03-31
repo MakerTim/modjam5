@@ -27,7 +27,7 @@ public class MusicItem extends Item {
 
 	@Override
 	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
-		world.playSound(null, pos, SoundUtil.find(instrument), SoundCategory.PLAYERS, 1f, 1f);
+		world.playSound(player, pos, SoundUtil.find(instrument), SoundCategory.PLAYERS, 1f, 1f);
 		
 		return EnumActionResult.SUCCESS;
 	}

@@ -38,7 +38,7 @@ public class ClientRegistry extends Registry {
 	private void registerSounds() {
 		for (int i = 1; i <= MusicWorldHelper.NUMBERS; i++) {
 			for (Instrument instrument : Instrument.values()) {
-				SoundUtil.register("insturment." + i + "." + instrument.toInstrumentName());
+				SoundUtil.register(instrument, i);
 			}
 		}
 	}

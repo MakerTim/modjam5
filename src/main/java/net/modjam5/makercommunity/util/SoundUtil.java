@@ -19,15 +19,14 @@ public class SoundUtil {
 
 	private static final Map<String, SoundEvent> sounds = new HashMap<>();
 
-	public static SoundEvent register(String name) {
+	public static void register(Instrument instrument, int key) {
+		String name = toResourceName(instrument, key);
 		ResourceLocation resourceLocation = new ResourceLocation(BaseMod.MODID, name);
 
 		SoundEvent soundEvent = new SoundEvent(resourceLocation);
 		soundEvent.setRegistryName(name);
 		ForgeRegistries.SOUND_EVENTS.register(soundEvent);
 		sounds.put(name, soundEvent);
-
-		return soundEvent;
 	}
 
 	public static SoundEvent find(Instrument instrument) {
@@ -40,10 +39,14 @@ public class SoundUtil {
 	}
 
 	public static Optional<SoundEvent> find(Instrument instrument, int key) {
-		return Optional.ofNullable(sounds.get("insturment." + key + "." + instrument.toInstrumentName()));
+		return Optional.ofNullable(sounds.get(toResourceName(instrument, key)));
 	}
 
 	public static Optional<SoundEvent> find(String name) {
 		return Optional.ofNullable(sounds.get(name));
+	}
+
+	private static String toResourceName(Instrument instrument, int key) {
+		return "instrument_" + key + "_" + instrument.toInstrumentName();
 	}
 }
