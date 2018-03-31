@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.modjam5.makercommunity.BaseMod;
-import net.modjam5.makercommunity.worldmusic.MusicItem;
+import net.modjam5.makercommunity.common.item.MusicItem;
 
 /**
  * @author Tim Biesenbeek

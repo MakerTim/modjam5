@@ -12,6 +12,11 @@ import net.minecraft.world.gen.structure.StructureStart;
  * @author Tim Biesenbeek
  */
 public interface Structure {
+	
+	default int getColor(){
+		return 7498810;
+	}
+	
 	void generate(World world, Random random, int i2, int k2);
 
 	StructureBoundingBox getBoundingBox();

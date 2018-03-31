@@ -1,4 +1,4 @@
-package net.modjam5.makercommunity.worldmusic;
+package net.modjam5.makercommunity.common.item;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.modjam5.makercommunity.BaseMod;
 import net.modjam5.makercommunity.common.Instrument;
 import net.modjam5.makercommunity.util.SoundUtil;
+import net.modjam5.makercommunity.worldmusic.MusicWorldHelper;
 
 /**
  * @author Tim Biesenbeek

@@ -12,6 +12,7 @@ import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.modjam5.makercommunity.common.world.structure.BeachStructure;
 import net.modjam5.makercommunity.common.world.structure.Structure;
+import net.modjam5.makercommunity.common.world.structure.VillageStructure;
 
 /**
  * @author Tim Biesenbeek
@@ -19,7 +20,7 @@ import net.modjam5.makercommunity.common.world.structure.Structure;
 @SuppressWarnings("unchecked")
 public class StructureRegister implements IWorldGenerator {
 
-	public static final Class<? extends Structure>[] classes = new Class[]{BeachStructure.class};
+	public static final Class<? extends Structure>[] classes = new Class[]{BeachStructure.class, VillageStructure.class};
 	private Structure[] structures = new Structure[classes.length];
 
 	public StructureRegister() {
@@ -30,6 +31,15 @@ public class StructureRegister implements IWorldGenerator {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public Structure byClass(Class<? extends Structure> cls) {
+		for (Structure structure : structures) {
+			if (structure.getClass() == cls) {
+				return structure;
+			}
+		}
+		throw new RuntimeException("DIDN'T REGISTER " + cls);
 	}
 
 	public static Optional<Class<? extends Structure>> findClassByName(String name) {
