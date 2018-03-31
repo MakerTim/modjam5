@@ -44,12 +44,16 @@ public class LocateSubMineOfThieves extends CommandBase {
 			throw new WrongUsageException("1 argument needed");
 		} else {
 			String structure = args[0];
+			boolean unvisited = true;
+			if (args.length >= 2) {
+				unvisited = parseBoolean(args[1]);
+			}
 			Optional<Class<? extends Structure>> structureClass = StructureRegister.findClassByName(structure);
 			if (!structureClass.isPresent()) {
 				throw new WrongUsageException("No class found by name " + structure);
 			}
 			Optional<BlockPos> pos = Registry.structureRegister.findClosestStructure(structureClass.get(),
-				sender.getEntityWorld(), sender.getPosition());
+				sender.getEntityWorld(), sender.getPosition(), unvisited);
 			if (pos.isPresent()) {
 				sender.sendMessage(new TextComponentTranslation("commands.locate.success", structure, pos.get().getX(),
 						pos.get().getZ()));
@@ -61,10 +65,15 @@ public class LocateSubMineOfThieves extends CommandBase {
 
 	@Override
 	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos) {
-		return args.length == 1
-				? getListOfStringsMatchingLastWord(args,
-					Arrays.stream(StructureRegister.classes).map(Class::getSimpleName).collect(Collectors.toList()))
-				: Collections.emptyList();
-
+		switch (args.length) {
+		case 0:
+		case 1:
+			return getListOfStringsMatchingLastWord(args,
+				Arrays.stream(StructureRegister.classes).map(Class::getSimpleName).collect(Collectors.toList()));
+		case 2:
+			getListOfStringsMatchingLastWord(args, Arrays.asList("true", "false"));
+		default:
+			return Collections.emptyList();
+		}
 	}
 }

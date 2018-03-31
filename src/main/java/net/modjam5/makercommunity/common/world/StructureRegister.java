@@ -36,7 +36,7 @@ public class StructureRegister implements IWorldGenerator {
 		return Arrays.stream(classes).filter(cls -> cls.getSimpleName().equals(name)).findFirst();
 	}
 
-	public Optional<BlockPos> findClosestStructure(Class<? extends Structure> structureClass, World world, BlockPos pos) {
+	public Optional<BlockPos> findClosestStructure(Class<? extends Structure> structureClass, World world, BlockPos pos, boolean unvisited) {
 		Optional<BlockPos> optionalBlockPos = Optional.empty();
 		for (Structure structure : structures) {
 			if (structure.getClass() != structureClass) {
@@ -44,7 +44,7 @@ public class StructureRegister implements IWorldGenerator {
 			}
 			if (structure instanceof MapGenStructure) {
 				optionalBlockPos = Optional
-						.ofNullable(((MapGenStructure) structure).getNearestStructurePos(world, pos, true));
+						.ofNullable(((MapGenStructure) structure).getNearestStructurePos(world, pos, unvisited));
 			}
 
 		}
