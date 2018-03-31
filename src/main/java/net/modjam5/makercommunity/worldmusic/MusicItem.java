@@ -3,6 +3,7 @@ package net.modjam5.makercommunity.worldmusic;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -26,9 +27,21 @@ public class MusicItem extends Item {
 	}
 
 	@Override
-	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
-		world.playSound(player, pos, SoundUtil.find(instrument), SoundCategory.PLAYERS, 1f, 1f);
-		
-		return EnumActionResult.SUCCESS;
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		if (!world.isRemote) {
+			return super.onItemRightClick(world, player, hand);
+		}
+		BlockPos pos = player.getPosition();
+		MusicWorldHelper.NumberPartPlaying numberPart = MusicWorldHelper.getNumberStep(world, pos);
+		if (numberPart.wait > 5) {
+			player.getCooldownTracker().setCooldown(this, numberPart.wait - 1);
+			return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
+		}
+		int part = MusicWorldHelper.nextPart(numberPart.key, numberPart.part);
+		MusicWorldHelper.logMap(world, pos, new MusicWorldHelper.NumberPart(numberPart.key, part));
+		world.playSound(player, pos, SoundUtil.find(instrument, part), SoundCategory.PLAYERS, 0.5f, 1f);
+		player.getCooldownTracker().setCooldown(this, 5 * 20);
+
+		return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
 	}
 }

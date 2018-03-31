@@ -19,34 +19,36 @@ public class SoundUtil {
 
 	private static final Map<String, SoundEvent> sounds = new HashMap<>();
 
-	public static void register(Instrument instrument, int key) {
-		String name = toResourceName(instrument, key);
-		ResourceLocation resourceLocation = new ResourceLocation(BaseMod.MODID, name);
+	public static void register(Instrument instrument, int number) {
+		for (int part = 0; part < 12; part++) {
+			String name = toResourceName(instrument, number, part);
+			ResourceLocation resourceLocation = new ResourceLocation(BaseMod.MODID, name);
 
-		SoundEvent soundEvent = new SoundEvent(resourceLocation);
-		soundEvent.setRegistryName(name);
-		ForgeRegistries.SOUND_EVENTS.register(soundEvent);
-		sounds.put(name, soundEvent);
+			SoundEvent soundEvent = new SoundEvent(resourceLocation);
+			soundEvent.setRegistryName(name);
+			ForgeRegistries.SOUND_EVENTS.register(soundEvent);
+			sounds.put(name, soundEvent);
+		}
 	}
 
-	public static SoundEvent find(Instrument instrument) {
+	public static SoundEvent find(Instrument instrument, int part) {
 		Optional<SoundEvent> optionalSoundEvent = Optional.empty();
 		while (!optionalSoundEvent.isPresent()) {
 			int key = new Random().nextInt(MusicWorldHelper.NUMBERS) + 1;
-			optionalSoundEvent = find(instrument, key);
+			optionalSoundEvent = find(instrument, key, part);
 		}
 		return optionalSoundEvent.get();
 	}
 
-	public static Optional<SoundEvent> find(Instrument instrument, int key) {
-		return Optional.ofNullable(sounds.get(toResourceName(instrument, key)));
+	public static Optional<SoundEvent> find(Instrument instrument, int key, int part) {
+		return Optional.ofNullable(sounds.get(toResourceName(instrument, key, part)));
 	}
 
 	public static Optional<SoundEvent> find(String name) {
 		return Optional.ofNullable(sounds.get(name));
 	}
 
-	private static String toResourceName(Instrument instrument, int key) {
-		return "instrument_" + key + "_" + instrument.toInstrumentName();
+	private static String toResourceName(Instrument instrument, int key, int part) {
+		return "instrument_" + key + "_" + instrument.toInstrumentName() + "-" + part;
 	}
 }
