@@ -49,7 +49,7 @@ public class VillageStructure extends MapGenStructure implements Structure {
 
 	@Override
 	public String getStructureName() {
-		return "BeachHouse";
+		return "VillageIsland";
 	}
 
 	@Nullable
@@ -110,10 +110,14 @@ public class VillageStructure extends MapGenStructure implements Structure {
 		int j = height - 1;
 		Entity zombie = EntityList.newEntity(EntityZombie.class, world);
 		if (zombie instanceof EntityZombie) {
-            EntityZombie zomb = (EntityZombie) zombie;
-            zomb.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemRegistry.recorders[0]));
-            zomb.setDropChance(EntityEquipmentSlot.HEAD, 100);
-            zomb.setLocationAndAngles(i + 7.5, j + 11.0, k + 12.821350744582702, world.rand.nextFloat() * 360F, 0);
+			EntityZombie zomb = (EntityZombie) zombie;
+			zomb.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemRegistry.recorders[0]));
+			zomb.setDropChance(EntityEquipmentSlot.HEAD, 100);
+			zomb.setLocationAndAngles(i + 7.5, j + 11.0, k + 12.821350744582702, world.rand.nextFloat() * 360F, 0);
+			zomb.setCustomNameTag("XJ9");
+			zomb.enablePersistence();
+			zomb.setAlwaysRenderNameTag(false);
+
 			world.spawnEntity(zomb);
 		}
 		BlockPos framePos = new BlockPos(i + 12.5, j + 17.5, k + 8);

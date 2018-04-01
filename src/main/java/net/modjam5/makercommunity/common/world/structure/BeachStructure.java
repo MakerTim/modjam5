@@ -1,5 +1,7 @@
 package net.modjam5.makercommunity.common.world.structure;
 
+import static net.minecraft.inventory.EntityEquipmentSlot.HEAD;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -7,7 +9,14 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.init.Biomes;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -15,6 +24,11 @@ import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.StructureStart;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.modjam5.makercommunity.common.ItemRegistry;
+import net.modjam5.makercommunity.common.Registry;
+import net.modjam5.makercommunity.util.MapStructureHelper;
 
 /**
  * @author Tim Biesenbeek
@@ -72,6 +86,34 @@ public class BeachStructure extends MapGenStructure implements Structure {
 		int height = world.getChunkFromChunkCoords(chunkX, chunkZ).getHeight(new BlockPos(i & 0xF, 0, k & 0xF));
 
 		int j = height - 1;
+
+		BlockPos chest = new BlockPos(i + 5, j + 2, k + 5);
+		world.setBlockState(chest, Blocks.CHEST.getDefaultState(), 3);
+		TileEntity te = world.getTileEntity(chest);
+		if (te instanceof TileEntityChest) {
+			TileEntityChest chestTE = (TileEntityChest) te;
+			IItemHandler iItemHandler = chestTE.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+			if (iItemHandler != null) {
+				iItemHandler.insertItem(world.rand.nextInt(chestTE.getSizeInventory()), MapStructureHelper
+						.buildMapFor(Registry.structureRegister.byClass(BoatStructure.class), world, chest),
+					false);
+			}
+		}
+
+		EntityZombieVillager villager = new EntityZombieVillager(world);
+		villager.setItemStackToSlot(HEAD, new ItemStack(ItemRegistry.recorders[1]));
+		villager.setDropChance(HEAD, 100F);
+		villager.setChild(true);
+		villager.enablePersistence();
+		villager.setLocationAndAngles(i + 5, j + 3, k + 5, world.rand.nextFloat() * 360F, 0);
+		villager.setCustomNameTag("XJ1");
+		villager.setAbsorptionAmount(10);
+		villager.addPotionEffect(new PotionEffect(MobEffects.SPEED, Short.MAX_VALUE/2, 1, false, true));
+		villager.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, Short.MAX_VALUE/2, 0, false, true));
+		villager.setAlwaysRenderNameTag(false);
+		world.spawnEntity(villager);
+		
+		
 		world.setBlockState(new BlockPos(i + 0, j + 0, k + 0), Block.getBlockById(0).getStateFromMeta(0), 3);
 		world.setBlockState(new BlockPos(i + 1, j + 0, k + 0), Block.getBlockById(0).getStateFromMeta(0), 3);
 		world.setBlockState(new BlockPos(i + 2, j + 0, k + 0), Block.getBlockById(0).getStateFromMeta(0), 3);
@@ -373,7 +415,6 @@ public class BeachStructure extends MapGenStructure implements Structure {
 		world.setBlockState(new BlockPos(i + 2, j + 2, k + 5), Block.getBlockById(0).getStateFromMeta(0), 3);
 		world.setBlockState(new BlockPos(i + 3, j + 2, k + 5), Block.getBlockById(0).getStateFromMeta(0), 3);
 		world.setBlockState(new BlockPos(i + 4, j + 2, k + 5), Block.getBlockById(75).getStateFromMeta(2), 3);
-		world.setBlockState(new BlockPos(i + 5, j + 2, k + 5), Block.getBlockById(152).getStateFromMeta(0), 3);
 		world.setBlockState(new BlockPos(i + 6, j + 2, k + 5), Block.getBlockById(75).getStateFromMeta(1), 3);
 		world.setBlockState(new BlockPos(i + 7, j + 2, k + 5), Block.getBlockById(0).getStateFromMeta(0), 3);
 		world.setBlockState(new BlockPos(i + 8, j + 2, k + 5), Block.getBlockById(0).getStateFromMeta(0), 3);

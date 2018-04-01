@@ -11,6 +11,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.modjam5.makercommunity.common.world.structure.BeachStructure;
+import net.modjam5.makercommunity.common.world.structure.BoatStructure;
 import net.modjam5.makercommunity.common.world.structure.Structure;
 import net.modjam5.makercommunity.common.world.structure.VillageStructure;
 
@@ -20,7 +21,11 @@ import net.modjam5.makercommunity.common.world.structure.VillageStructure;
 @SuppressWarnings("unchecked")
 public class StructureRegister implements IWorldGenerator {
 
-	public static final Class<? extends Structure>[] classes = new Class[]{BeachStructure.class, VillageStructure.class};
+	public static final Class<? extends Structure>[] classes = new Class[]{
+			BeachStructure.class, //
+			VillageStructure.class, //
+			BoatStructure.class //
+	};
 	private Structure[] structures = new Structure[classes.length];
 
 	public StructureRegister() {
