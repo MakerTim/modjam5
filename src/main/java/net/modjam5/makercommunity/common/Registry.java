@@ -1,6 +1,7 @@
 package net.modjam5.makercommunity.common;
 
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -8,8 +9,11 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.modjam5.makercommunity.BaseMod;
 import net.modjam5.makercommunity.common.command.LocateSubMineOfThieves;
+import net.modjam5.makercommunity.common.entity.EntityTriggerArmorStand;
 import net.modjam5.makercommunity.common.world.StructureRegister;
 
 /**
@@ -24,6 +28,8 @@ public class Registry {
 	}
 
 	public void init(FMLInitializationEvent event) {
+		EntityRegistry.registerModEntity(new ResourceLocation(BaseMod.MODID, "triggerarmorstand"),
+			EntityTriggerArmorStand.class, "triggerarmorstand", 1, BaseMod.MODID, 64, 1, false);
 		GameRegistry.registerWorldGenerator((structureRegister = new StructureRegister()), 5);
 	}
 

@@ -1,6 +1,9 @@
 package net.modjam5.makercommunity.client;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -12,6 +15,7 @@ import net.modjam5.makercommunity.BaseMod;
 import net.modjam5.makercommunity.common.Instrument;
 import net.modjam5.makercommunity.common.ItemRegistry;
 import net.modjam5.makercommunity.common.Registry;
+import net.modjam5.makercommunity.common.entity.EntityTriggerArmorStand;
 import net.modjam5.makercommunity.util.SoundUtil;
 import net.modjam5.makercommunity.worldmusic.MusicWorldHelper;
 
@@ -25,6 +29,9 @@ public class ClientRegistry extends Registry {
 		super.init(event);
 		registerSounds();
 
+		RenderManager renderManager = Minecraft.getMinecraft().getRenderManager();
+		renderManager.entityRenderMap.put(EntityTriggerArmorStand.class,
+			renderManager.entityRenderMap.get(EntityArmorStand.class));
 	}
 
 	@Override
@@ -41,7 +48,7 @@ public class ClientRegistry extends Registry {
 			ModelLoader.setCustomModelResourceLocation(item, 0,
 				new ModelResourceLocation(item.getRegistryName(), null));
 		}
-		
+
 		for (Item item : ItemRegistry.recorders) {
 			ModelLoader.setCustomModelResourceLocation(item, 0,
 				new ModelResourceLocation(new ResourceLocation(BaseMod.MODID, "recorder"), null));
