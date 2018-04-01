@@ -29,6 +29,116 @@
       }
     ]
   },
+  "voicelog_soundlog4": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog4",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog5": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog5",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog6": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog6",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog7": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog7",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog8": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog8",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog9": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog9",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog10": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog10",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog11": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog11",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog12": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog12",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog13": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog13",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog14": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog14",
+        "stream": true
+      }
+    ]
+  },
   "instrument_1_drums-0": {
     "category": "player",
     "subtitle": "submineofthieves.insturument.drums",
