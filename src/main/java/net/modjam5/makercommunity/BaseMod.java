@@ -1,16 +1,14 @@
 package net.modjam5.makercommunity;
 
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import net.modjam5.makercommunity.client.ClientRegistry;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.modjam5.makercommunity.common.Registry;
 
 @Mod(modid = BaseMod.MODID, name = BaseMod.NAME, version = BaseMod.VERSION)
@@ -31,8 +29,13 @@ public class BaseMod {
 	}
 
 	@EventHandler
-	public void preInitServer(FMLInitializationEvent event) {
+	public void initServer(FMLInitializationEvent event) {
 		registry.init(event);
+	}
+
+	@EventHandler
+	public void postInitServer(FMLPostInitializationEvent event) {
+		registry.postInit(event);
 	}
 
 	@EventHandler

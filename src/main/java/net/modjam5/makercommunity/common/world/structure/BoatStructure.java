@@ -7,9 +7,11 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.entity.monster.EntityIllusionIllager;
 import net.minecraft.init.Biomes;
+import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -62,7 +64,7 @@ public class BoatStructure extends MapGenStructure implements Structure {
 		Random random = this.world.setRandomSeed(2304 * chunkX, 1996 * chunkZ, 905);
 		boolean rand = random.nextInt(1000) + 1 <= 2;
 		boolean biome = this.world.getBiomeProvider().areBiomesViable(chunkX * 16 + 8, chunkZ * 16 + 8, 1,
-				ALLOWED_BIOMES);
+			ALLOWED_BIOMES);
 		return rand && biome;
 	}
 
@@ -106,6 +108,15 @@ public class BoatStructure extends MapGenStructure implements Structure {
 		entityitemframe.setDisplayedItem(MapStructureHelper
 				.buildMapFor(Registry.structureRegister.byClass(VillageStructure.class), world, framePos));
 		world.spawnEntity(entityitemframe);
+
+		EntityArmorStand armorStand = new EntityArmorStand(world, i + 4.5, j + -1, k + 10);
+		ItemStack scubaHelmet = new ItemStack(ItemRegistry.scubaHelmet);
+		scubaHelmet.addEnchantment(Enchantments.RESPIRATION, 5);
+		scubaHelmet.addEnchantment(Enchantments.AQUA_AFFINITY, 5);
+		scubaHelmet.addEnchantment(Enchantments.BINDING_CURSE, 0);
+		armorStand.setItemStackToSlot(EntityEquipmentSlot.HEAD, scubaHelmet);
+		armorStand.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.recorders[2]));
+		world.spawnEntity(armorStand);
 
 		world.setBlockState(new BlockPos(i + 4, j + 0, k + 8), Block.getBlockById(5).getStateFromMeta(2), 3);
 		world.setBlockState(new BlockPos(i + 1, j + 1, k + 8), Block.getBlockById(35).getStateFromMeta(0), 3);
