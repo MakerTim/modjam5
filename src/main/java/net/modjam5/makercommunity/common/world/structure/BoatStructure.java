@@ -11,7 +11,6 @@ import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.entity.monster.EntityIllusionIllager;
 import net.minecraft.init.Biomes;
-import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -26,6 +25,7 @@ import net.minecraft.world.gen.structure.StructureStart;
 import net.modjam5.makercommunity.common.ItemRegistry;
 import net.modjam5.makercommunity.common.Registry;
 import net.modjam5.makercommunity.util.MapStructureHelper;
+import net.modjam5.makercommunity.util.ScubaHelmetHelper;
 
 /**
  * @author Tim Biesenbeek
@@ -104,18 +104,13 @@ public class BoatStructure extends MapGenStructure implements Structure {
 
 		BlockPos framePos = new BlockPos(i + 4.5, j + 7.5, k + 10);
 		EntityItemFrame entityitemframe = new EntityItemFrame(world, framePos, EnumFacing.SOUTH);
-		// TODO: change type map
-		entityitemframe.setDisplayedItem(MapStructureHelper
-				.buildMapFor(Registry.structureRegister.byClass(VillageStructure.class), world, framePos));
+		entityitemframe.setDisplayedItem(
+			MapStructureHelper.buildMapFor(Registry.structureRegister.byClass(DeepStructure.class), world, framePos));
 		world.spawnEntity(entityitemframe);
 
 		EntityArmorStand armorStand = new EntityArmorStand(world, i + 4.5, j + -1, k + 10);
-		ItemStack scubaHelmet = new ItemStack(ItemRegistry.scubaHelmet);
-		scubaHelmet.addEnchantment(Enchantments.RESPIRATION, 5);
-		scubaHelmet.addEnchantment(Enchantments.AQUA_AFFINITY, 5);
-		scubaHelmet.addEnchantment(Enchantments.BINDING_CURSE, 0);
-		armorStand.setItemStackToSlot(EntityEquipmentSlot.HEAD, scubaHelmet);
-		armorStand.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.recorders[2]));
+		armorStand.setItemStackToSlot(EntityEquipmentSlot.HEAD, ScubaHelmetHelper.scuba());
+		armorStand.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.recorders[3]));
 		world.spawnEntity(armorStand);
 
 		world.setBlockState(new BlockPos(i + 4, j + 0, k + 8), Block.getBlockById(5).getStateFromMeta(2), 3);

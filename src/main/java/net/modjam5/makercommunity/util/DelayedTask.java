@@ -13,10 +13,10 @@ public class DelayedTask implements Runnable {
 	private Runnable function;
 
 	public DelayedTask(Runnable function) {
-		this(20, function);
+		this(function, 20);
 	}
 
-	public DelayedTask(long delay, Runnable function) {
+	public DelayedTask(Runnable function, long delay) {
 		this.delay = delay;
 		this.function = function;
 		MinecraftForge.EVENT_BUS.register(this);
