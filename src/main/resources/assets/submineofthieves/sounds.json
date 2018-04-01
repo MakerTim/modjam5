@@ -1,4 +1,34 @@
 {
+  "voicelog_soundlog1": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog1",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog2": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog2",
+        "stream": true
+      }
+    ]
+  },
+  "voicelog_soundlog3": {
+    "category": "player",
+    "subtitle": "submineofthieves:voicelog.recorded",
+    "sounds": [
+      {
+        "name": "submineofthieves:voicelog/soundlog3",
+        "stream": true
+      }
+    ]
+  },
   "instrument_1_drums-0": {
     "category": "player",
     "subtitle": "submineofthieves.insturument.drums",

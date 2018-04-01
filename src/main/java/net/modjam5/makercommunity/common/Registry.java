@@ -30,6 +30,7 @@ public class Registry {
 	public void registerBlocks(RegistryEvent.Register<Item> event) {
 		ItemRegistry.register();
 		event.getRegistry().registerAll(ItemRegistry.items);
+		event.getRegistry().registerAll(ItemRegistry.recorders);
 	}
 
 	public void startWorld(FMLServerStartingEvent event) {

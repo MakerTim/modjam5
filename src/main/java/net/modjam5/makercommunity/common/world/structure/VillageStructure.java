@@ -13,7 +13,6 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Biomes;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -24,6 +23,7 @@ import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.StructureStart;
+import net.modjam5.makercommunity.common.ItemRegistry;
 import net.modjam5.makercommunity.common.Registry;
 import net.modjam5.makercommunity.util.MapStructureHelper;
 
@@ -110,9 +110,11 @@ public class VillageStructure extends MapGenStructure implements Structure {
 		int j = height - 1;
 		Entity zombie = EntityList.newEntity(EntityZombie.class, world);
 		if (zombie instanceof EntityZombie) {
-			zombie.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.GOLDEN_HELMET));
-			zombie.setLocationAndAngles(i + 7.5, j + 11.0, k + 12.821350744582702, world.rand.nextFloat() * 360F, 0);
-			world.spawnEntity(zombie);
+            EntityZombie zomb = (EntityZombie) zombie;
+            zomb.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ItemRegistry.recorders[0]));
+            zomb.setDropChance(EntityEquipmentSlot.HEAD, 100);
+            zomb.setLocationAndAngles(i + 7.5, j + 11.0, k + 12.821350744582702, world.rand.nextFloat() * 360F, 0);
+			world.spawnEntity(zomb);
 		}
 		BlockPos framePos = new BlockPos(i + 12.5, j + 17.5, k + 8);
 		EntityItemFrame entityitemframe = new EntityItemFrame(world, framePos, EnumFacing.SOUTH);

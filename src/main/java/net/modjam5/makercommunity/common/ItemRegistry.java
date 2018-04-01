@@ -13,6 +13,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.modjam5.makercommunity.BaseMod;
 import net.modjam5.makercommunity.common.item.MusicItem;
+import net.modjam5.makercommunity.common.item.RecordedItem;
+import net.modjam5.makercommunity.util.SoundUtil;
 
 /**
  * @author Tim Biesenbeek
@@ -20,11 +22,12 @@ import net.modjam5.makercommunity.common.item.MusicItem;
 public class ItemRegistry {
 
 	public static Item debug;
-	public static Item drums;
-	public static Item flute;
-	public static Item guitar;
-	public static Item steeldrum;
-	public static Item whistle;
+	public static MusicItem drums;
+	public static MusicItem flute;
+	public static MusicItem guitar;
+	public static MusicItem steeldrum;
+	public static MusicItem whistle;
+	public static RecordedItem[] recorders;
 	public static Item[] items = new Item[0];
 
 	public static void register() {
@@ -37,6 +40,12 @@ public class ItemRegistry {
 		guitar = new MusicItem("guitar", Instrument.GUITAR);
 		steeldrum = new MusicItem("steeldrum", Instrument.STEELDRUM);
 		whistle = new MusicItem("whistle", Instrument.WHISTLE);
+
+		recorders = new RecordedItem[]{
+				new RecordedItem("record_1", SoundUtil.register("voicelog_soundlog1"), 40 * 20), //
+				new RecordedItem("record_2", SoundUtil.register("voicelog_soundlog2"), 25 * 20), //
+				new RecordedItem("record_3", SoundUtil.register("voicelog_soundlog3"), 30 * 20), //
+		};
 
 		items = new Item[]{debug, drums, flute, guitar, steeldrum, whistle};
 	}

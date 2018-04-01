@@ -19,15 +19,18 @@ public class SoundUtil {
 
 	private static final Map<String, SoundEvent> sounds = new HashMap<>();
 
+	public static SoundEvent register(String name) {
+		ResourceLocation resourceLocation = new ResourceLocation(BaseMod.MODID, name);
+		SoundEvent soundEvent = new SoundEvent(resourceLocation);
+		soundEvent.setRegistryName(name);
+		ForgeRegistries.SOUND_EVENTS.register(soundEvent);
+		return soundEvent;
+	}
+
 	public static void register(Instrument instrument, int number) {
 		for (int part = 0; part < MusicWorldHelper.NUMBER_MAPPING[number - 1]; part++) {
 			String name = toResourceName(instrument, number, part);
-			ResourceLocation resourceLocation = new ResourceLocation(BaseMod.MODID, name);
-
-			SoundEvent soundEvent = new SoundEvent(resourceLocation);
-			soundEvent.setRegistryName(name);
-			ForgeRegistries.SOUND_EVENTS.register(soundEvent);
-			sounds.put(name, soundEvent);
+			sounds.put(name, register(name));
 		}
 	}
 
