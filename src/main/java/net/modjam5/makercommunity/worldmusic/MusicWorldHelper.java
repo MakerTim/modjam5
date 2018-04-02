@@ -13,7 +13,7 @@ import net.minecraft.world.World;
  */
 public class MusicWorldHelper {
 
-	public static final int[] NUMBER_MAPPING = {2};
+	public static final int[] NUMBER_MAPPING = {2, 2, 4};
 	public static final int NUMBERS = NUMBER_MAPPING.length;
 	private static final int distanceLink = (int) Math.pow(100, 2);
 	public static final int tickTiming = 5 * 20;
@@ -44,12 +44,14 @@ public class MusicWorldHelper {
 			double distanceSqThis = info.pos.distanceSq(position);
 			if (distanceSqThis < distanceSq) {
 				distanceSq = (int) distanceSqThis;
-				return part; // thePart = part;
+				thePart = part;
+				break; // <- this should not be here
 			}
 		}
 		if (thePart == null) {
 			thePart = new NumberPartPlaying(new Random().nextInt(MusicWorldHelper.NUMBERS) + 1, -1, 0);
 		}
+		System.out.println(thePart.key + "-" + thePart.part);
 		return thePart;
 	}
 

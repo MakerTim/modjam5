@@ -1,5 +1,7 @@
 package net.modjam5.makercommunity.common.item;
 
+import static net.modjam5.makercommunity.worldmusic.MusicWorldHelper.tickTiming;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -34,13 +36,14 @@ public class MusicItem extends Item {
 		}
 		BlockPos pos = player.getPosition();
 		MusicWorldHelper.NumberPartPlaying numberPart = MusicWorldHelper.getNumberStep(world, pos);
-		if (numberPart.wait > 5) {
+		if (numberPart.wait > 5 && numberPart.wait != tickTiming) {
 			player.getCooldownTracker().setCooldown(this, numberPart.wait - 1);
 			return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
 		}
 		int part = MusicWorldHelper.nextPart(numberPart.key, numberPart.part);
 		MusicWorldHelper.logMap(world, pos, new MusicWorldHelper.NumberPart(numberPart.key, part));
-		world.playSound(player, pos, SoundUtil.find(instrument, part), SoundCategory.PLAYERS, 0.5f, 1f);
+		SoundUtil.find(instrument, numberPart.key, part).ifPresent(sound -> //
+		world.playSound(player, pos, sound, SoundCategory.PLAYERS, 0.5f, 1f));
 		player.getCooldownTracker().setCooldown(this, 5 * 20);
 
 		return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
