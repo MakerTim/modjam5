@@ -45,7 +45,6 @@ public class MusicWorldHelper {
 			if (distanceSqThis < distanceSq) {
 				distanceSq = (int) distanceSqThis;
 				thePart = part;
-				break; // <- this should not be here
 			}
 		}
 		if (thePart == null) {
