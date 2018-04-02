@@ -99,9 +99,8 @@ public class SubHouseStructure extends MapGenStructure implements Structure {
 
 		BlockPos framePos = new BlockPos(i + 5.5, j + 2.5, k + 12.96875);
 		EntityItemFrame entityitemframe = new EntityItemFrame(world, framePos, EnumFacing.NORTH);
-		// TODO: change type map
 		entityitemframe.setDisplayedItem(MapStructureHelper
-				.buildMapFor(Registry.structureRegister.byClass(VillageStructure.class), world, framePos));
+				.buildMapFor(Registry.structureRegister.byClass(End1DeepStructure.class), world, framePos));
 		world.spawnEntity(entityitemframe);
 
 		EntitySkeleton skelly = new EntitySkeleton(world);

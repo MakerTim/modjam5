@@ -18,31 +18,31 @@ import net.modjam5.makercommunity.common.world.structure.Structure;
  */
 public class MapStructureHelper {
 
-	public static ItemStack buildMapFor(Structure structure, World world, BlockPos where) {
+	public static ItemStack buildMapFor(Structure structure, World world, BlockPos from) {
 		String target = structure.getClass().getSimpleName();
-		Optional<BlockPos> blockPos = Registry.structureRegister.findClosestStructure(structure.getClass(), world,
-			where, true);
+		Optional<BlockPos> blockPos = Registry.structureRegister.findClosestStructure(structure.getClass(), world, from,
+			true);
 		if (!blockPos.isPresent()) {
 			System.err.println("### ### ### ###");
-			System.err.println();
 			System.err.println("WOW SOMETHING IS WRONG");
-			System.err.println();
 			System.err.println("No structure position found for " + target);
-			System.err.println();
 			System.err.println("### ### ### ###");
 			return new ItemStack(Blocks.DIAMOND_BLOCK);
 		}
-		BlockPos blockpos = blockPos.get();
-		ItemStack itemstack = ItemMap.setupNewMap(world, (double) blockpos.getX(), (double) blockpos.getZ(), (byte) 2,
-			true, true);
-		ItemMap.renderBiomePreviewMap(world, itemstack);
-		addTargetDecoration(itemstack, blockpos, MapDecoration.Type.TARGET_X, structure.getColor());
+		return buildMapFor(world, blockPos.get(), target.toLowerCase(), structure.getColor());
+	}
 
-		itemstack.setTranslatableName("filled_map." + target.toLowerCase());
+	public static ItemStack buildMapFor(World world, BlockPos markerPlace, String name, int color) {
+		ItemStack itemstack = ItemMap.setupNewMap(world, (double) markerPlace.getX(), (double) markerPlace.getZ(),
+			(byte) 2, true, true);
+		ItemMap.renderBiomePreviewMap(world, itemstack);
+		addTargetDecoration(itemstack, markerPlace, MapDecoration.Type.TARGET_X, color);
+
+		itemstack.setTranslatableName("filled_map." + name);
 		return itemstack;
 	}
 
-	static void addTargetDecoration(ItemStack map, BlockPos target, MapDecoration.Type iconType, int color) {
+	private static void addTargetDecoration(ItemStack map, BlockPos target, MapDecoration.Type iconType, int color) {
 		NBTTagList nbttaglist;
 
 		if (map.hasTagCompound() && map.getTagCompound() != null && map.getTagCompound().hasKey("Decorations", 9)) {
