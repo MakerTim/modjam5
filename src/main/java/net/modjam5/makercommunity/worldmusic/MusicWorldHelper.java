@@ -40,17 +40,15 @@ public class MusicWorldHelper {
 				iterator.remove();
 				continue;
 			}
-			NumberPartPlaying part = new NumberPartPlaying(mapping.getValue(), tickTiming - (int) ticksAgo);
 			double distanceSqThis = info.pos.distanceSq(position);
 			if (distanceSqThis < distanceSq) {
 				distanceSq = (int) distanceSqThis;
-				thePart = part;
+				thePart = new NumberPartPlaying(mapping.getValue(), tickTiming - (int) ticksAgo);
 			}
 		}
 		if (thePart == null) {
 			thePart = new NumberPartPlaying(new Random().nextInt(MusicWorldHelper.NUMBERS) + 1, -1, 0);
 		}
-		System.out.println(thePart.key + "-" + thePart.part);
 		return thePart;
 	}
 
