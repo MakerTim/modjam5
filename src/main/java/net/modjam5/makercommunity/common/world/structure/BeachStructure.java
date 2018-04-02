@@ -64,6 +64,9 @@ public class BeachStructure extends MapGenStructure implements Structure {
 
 	@Override
 	public boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+		if (Math.abs(chunkX) < 20 || Math.abs(chunkZ) < 20) {
+			return false;
+		}
 		Random random = this.world.setRandomSeed(2304 * chunkX, 1996 * chunkZ, 905);
 		boolean rand = random.nextInt(100) + 1 <= 5;
 		boolean biome = this.world.getBiomeProvider().areBiomesViable(chunkX * 16 + 8, chunkZ * 16 + 8, 4,

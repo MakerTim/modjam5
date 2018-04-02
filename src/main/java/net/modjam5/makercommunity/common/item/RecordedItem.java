@@ -33,7 +33,7 @@ public class RecordedItem extends Item {
 		}
 		BlockPos pos = player.getPosition();
 
-		world.playSound(player, pos, musicFile, SoundCategory.PLAYERS, 0.75f, 1f);
+		world.playSound(player, pos, musicFile, SoundCategory.PLAYERS, 3f, 1f);
 		player.getCooldownTracker().setCooldown(this, (int) tickDuration);
 
 		return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItem(hand));

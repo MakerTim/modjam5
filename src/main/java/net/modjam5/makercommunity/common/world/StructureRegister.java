@@ -22,7 +22,8 @@ public class StructureRegister implements IWorldGenerator {
 			BeachStructure.class, //
 			VillageStructure.class, //
 			BoatStructure.class, //
-			DeepStructure.class //
+			DeepStructure.class, //
+			DeepHouseStructure.class //
 	};
 	private Structure[] structures = new Structure[classes.length];
 

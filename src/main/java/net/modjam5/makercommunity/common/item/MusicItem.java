@@ -43,7 +43,7 @@ public class MusicItem extends Item {
 		int part = MusicWorldHelper.nextPart(numberPart.key, numberPart.part);
 		MusicWorldHelper.logMap(world, pos, new MusicWorldHelper.NumberPart(numberPart.key, part));
 		SoundUtil.find(instrument, numberPart.key, part).ifPresent(sound -> //
-		world.playSound(player, pos, sound, SoundCategory.PLAYERS, 0.5f, 1f));
+		world.playSound(player, pos, sound, SoundCategory.PLAYERS, 3f, 1f));
 		player.getCooldownTracker().setCooldown(this, 5 * 20);
 
 		return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));

@@ -1,5 +1,6 @@
 package net.modjam5.makercommunity.util;
 
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -11,6 +12,7 @@ public class DelayedTask implements Runnable {
 
 	private long delay;
 	private Runnable function;
+	private World world;
 
 	public DelayedTask(Runnable function) {
 		this(function, 20);
@@ -24,7 +26,10 @@ public class DelayedTask implements Runnable {
 
 	@SubscribeEvent
 	public void onTick(TickEvent.WorldTickEvent event) {
-		if (event.phase == TickEvent.Phase.START) {
+		if (world == null) {
+			world = event.world;
+		}
+		if (event.phase == TickEvent.Phase.START && event.world == world) {
 			run();
 		}
 	}

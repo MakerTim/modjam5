@@ -47,7 +47,7 @@ public class DeepStructure extends MapGenStructure implements Structure {
 
 	@Override
 	public String getStructureName() {
-		return "Boat";
+		return "Deep";
 	}
 
 	@Nullable
@@ -97,9 +97,8 @@ public class DeepStructure extends MapGenStructure implements Structure {
 
 		BlockPos framePos = new BlockPos(i + 1, j, k);
 		EntityItemFrame entityitemframe = new EntityItemFrame(world, framePos, EnumFacing.EAST);
-		// TODO: change type map
 		entityitemframe.setDisplayedItem(MapStructureHelper
-				.buildMapFor(Registry.structureRegister.byClass(VillageStructure.class), world, framePos));
+				.buildMapFor(Registry.structureRegister.byClass(DeepHouseStructure.class), world, framePos));
 		world.spawnEntity(entityitemframe);
 
 		EntityTriggerArmorStand armorStand = new EntityTriggerArmorStand(world, i + 0.5, j + 1, k + 0.5);
