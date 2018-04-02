@@ -14,7 +14,7 @@ import net.modjam5.makercommunity.util.MapStructureHelper;
  */
 public abstract class AbstractEndDeepStructure extends AbstractDeepStructure {
 
-	protected static final int[] distance = new int[]{15, 10, 8, 5, 0};
+	protected static final int[] distance = new int[]{15, 10, 8, 5, 1, 0};
 
 	@Override
 	public abstract String getStructureName();
