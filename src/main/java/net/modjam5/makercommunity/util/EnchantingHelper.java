@@ -13,7 +13,7 @@ public class EnchantingHelper {
 		return is;
 	}
 
-	public static ItemStack withEnchant(ItemStack is, Enchantment[] enchants, int[] levels) {
+	public static ItemStack withEnchants(ItemStack is, Enchantment[] enchants, int[] levels) {
 		if (enchants.length != levels.length) {
 			throw new RuntimeException("enchants length not equal to levels length");
 		}

@@ -100,9 +100,8 @@ public class DeepHouseStructure extends MapGenStructure implements Structure {
 
 		BlockPos framePos = new BlockPos(i + 3, j + 0.5, k + 6.5);
 		EntityItemFrame entityitemframe = new EntityItemFrame(world, framePos, EnumFacing.EAST);
-		// TODO: change type map
 		entityitemframe.setDisplayedItem(MapStructureHelper
-				.buildMapFor(Registry.structureRegister.byClass(VillageStructure.class), world, framePos));
+				.buildMapFor(Registry.structureRegister.byClass(SubHouseStructure.class), world, framePos));
 		world.spawnEntity(entityitemframe);
 
 		EntityArmorStand armorStand = new EntityArmorStand(world, i + 4.5, j + 1, k + 4.5);
