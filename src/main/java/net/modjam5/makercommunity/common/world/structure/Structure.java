@@ -21,7 +21,7 @@ public interface Structure {
 
 	StructureBoundingBox getBoundingBox();
 
-	boolean canSpawnStructureAtCoords(int chunkX, int chunkZ);
+	boolean canSpawnStructureAtCoords2(int chunkX, int chunkZ);
 
 	default boolean hasSpace(World world, int xPos, int yPos, int zPos) {
 		StructureBoundingBox boundingBox = getBoundingBox();

@@ -78,7 +78,7 @@ public class StructureRegister implements IWorldGenerator {
 		int z = chunkZ * 16;
 		for (Structure structure : structures) {
 			structure.updateWorld(world);
-			if (structure.canSpawnStructureAtCoords(chunkX, chunkZ)) {
+			if (structure.canSpawnStructureAtCoords2(chunkX, chunkZ)) {
 				structure.generate(world, random, x, z);
 			}
 		}
