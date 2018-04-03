@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "SNS",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick",
+      "data": 0
+    },
+    "I": {
+      "item": "minecraft:iron_ingot",
+      "data": 0
+    },
+    "N":
+    {
+      "item": "minecraft:noteblock",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "submineofthieves:steeldrum",
+    "data": 0
+  }
+}

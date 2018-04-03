@@ -68,7 +68,7 @@ public class DeepHouseStructure extends MapGenStructure implements Structure {
 			return false;
 		}
 		Random random = this.world.setRandomSeed(2304 * chunkX, 1996 * chunkZ, 997);
-		boolean rand = random.nextInt(1000) + 1 <= 1;
+		boolean rand = random.nextInt(1000) + 1 <= 2;
 		boolean biome = this.world.getBiomeProvider().areBiomesViable(chunkX * 16 + 8, chunkZ * 16 + 8, 1,
 			ALLOWED_BIOMES);
 		return rand && biome;

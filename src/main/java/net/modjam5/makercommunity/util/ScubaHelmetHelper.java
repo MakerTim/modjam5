@@ -13,7 +13,7 @@ public class ScubaHelmetHelper {
 		ItemStack scubaHelmet = new ItemStack(ItemRegistry.scubaHelmet);
 		scubaHelmet.addEnchantment(Enchantments.RESPIRATION, 5);
 		scubaHelmet.addEnchantment(Enchantments.AQUA_AFFINITY, 5);
-		scubaHelmet.addEnchantment(Enchantments.BINDING_CURSE, 0);
+		scubaHelmet.addEnchantment(Enchantments.BINDING_CURSE, 1);
 		return scubaHelmet;
 	}
 }

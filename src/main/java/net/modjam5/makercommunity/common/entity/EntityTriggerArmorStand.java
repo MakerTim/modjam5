@@ -7,6 +7,7 @@ import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -24,11 +25,12 @@ public class EntityTriggerArmorStand extends EntityArmorStand {
 	private long tickDelay = 0;
 
 	public EntityTriggerArmorStand(World worldIn) {
-		super(worldIn);
+		this(worldIn,0,0,0);
 	}
 
 	public EntityTriggerArmorStand(World worldIn, double posX, double posY, double posZ) {
 		super(worldIn, posX, posY, posZ);
+		setEntityInvulnerable(true);
 	}
 
 	public Class<? extends Entity> getSummonOnTrigger() {
@@ -47,14 +49,13 @@ public class EntityTriggerArmorStand extends EntityArmorStand {
 		this.tickDelay = tickDelay;
 	}
 
-	@Override
-	public EnumActionResult applyPlayerInteraction(EntityPlayer player, Vec3d vec, EnumHand hand) {
+	public void trigger(){
 		BlockPos pos = getPosition();
 		this.dropContents();
 		if (summonOnTrigger != null) {
 			Runnable run = () -> {
 				world.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.E_PARROT_IM_ENDERDRAGON,
-					SoundCategory.HOSTILE, 1F, 1F, true);
+						SoundCategory.HOSTILE, 1F, 1F, true);
 				Entity entity = EntityList.newEntity(summonOnTrigger, world);
 				if (entity == null) {
 					return;
@@ -68,6 +69,18 @@ public class EntityTriggerArmorStand extends EntityArmorStand {
 				run.run();
 			}
 		}
+	}
+	
+	
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float amount) {
+		trigger();
+		return false;
+	}
+
+	@Override
+	public EnumActionResult applyPlayerInteraction(EntityPlayer player, Vec3d vec, EnumHand hand) {
+		trigger();
 		return EnumActionResult.SUCCESS;
 	}
 

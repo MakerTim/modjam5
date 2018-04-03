@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " I ",
+    "N  "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot",
+      "data": 0
+    },
+    "N":
+    {
+      "item": "minecraft:noteblock",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "submineofthieves:whistle",
+    "data": 0
+  }
+}

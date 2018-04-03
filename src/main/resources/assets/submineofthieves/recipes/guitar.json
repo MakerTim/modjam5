@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "SsS",
+    "NS "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick",
+      "data": 0
+    },
+    "s": {
+      "item": "minecraft:string",
+      "data": 0
+    },
+    "N":
+    {
+      "item": "minecraft:noteblock",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "submineofthieves:guitar",
+    "data": 0
+  }
+}

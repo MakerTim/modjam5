@@ -1,7 +1,27 @@
 {
+  "portal_ambient": {
+    "category": "block",
+    "subtitle": "submineofthieves.portal.ambient",
+    "sounds": [
+      {
+        "name": "submineofthieves:portal/ambient",
+        "stream": true
+      }
+    ]
+  },
+  "portal_use": {
+    "category": "block",
+    "subtitle": "submineofthieves.portal.use",
+    "sounds": [
+      {
+        "name": "submineofthieves:portal/use",
+        "stream": true
+      }
+    ]
+  },
   "voicelog_soundlog1": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog1",
@@ -11,7 +31,7 @@
   },
   "voicelog_soundlog2": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog2",
@@ -21,7 +41,7 @@
   },
   "voicelog_soundlog3": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog3",
@@ -31,7 +51,7 @@
   },
   "voicelog_soundlog4": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog4",
@@ -41,7 +61,7 @@
   },
   "voicelog_soundlog5": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog5",
@@ -51,7 +71,7 @@
   },
   "voicelog_soundlog6": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog6",
@@ -61,7 +81,7 @@
   },
   "voicelog_soundlog7": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog7",
@@ -71,7 +91,7 @@
   },
   "voicelog_soundlog8": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog8",
@@ -81,7 +101,7 @@
   },
   "voicelog_soundlog9": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog9",
@@ -91,7 +111,7 @@
   },
   "voicelog_soundlog10": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog10",
@@ -101,7 +121,7 @@
   },
   "voicelog_soundlog11": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog11",
@@ -111,7 +131,7 @@
   },
   "voicelog_soundlog12": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog12",
@@ -121,7 +141,7 @@
   },
   "voicelog_soundlog13": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog13",
@@ -131,7 +151,7 @@
   },
   "voicelog_soundlog14": {
     "category": "player",
-    "subtitle": "submineofthieves:voicelog.recorded",
+    "subtitle": "submineofthieves.voicelog.recorded",
     "sounds": [
       {
         "name": "submineofthieves:voicelog/soundlog14",

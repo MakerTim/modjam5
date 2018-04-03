@@ -1,0 +1,13 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "submineofthieves:portal",
+		"textues": {
+			"all": "submineofthieves:blocks/portal"
+		}
+	},
+	"variants": {
+		"normal": [ { } ],
+		"inventory": [ { } ]
+	}
+}
