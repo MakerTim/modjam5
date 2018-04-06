@@ -39,6 +39,10 @@ public class BeachStructure extends MapGenStructure implements Structure {
 	private static final List<Biome> ALLOWED_BIOMES = Collections.singletonList(Biomes.BEACH);
 
 	@Override
+	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+		return canSpawnStructureAtCoords2(chunkX, chunkZ);
+	}
+	@Override
 	public void updateWorld(World world) {
 		this.world = world;
 	}
@@ -63,7 +67,7 @@ public class BeachStructure extends MapGenStructure implements Structure {
 	}
 
 	@Override
-	public boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+	public boolean canSpawnStructureAtCoords2(int chunkX, int chunkZ) {
 		if (Math.abs(chunkX) < 20 || Math.abs(chunkZ) < 20) {
 			return false;
 		}

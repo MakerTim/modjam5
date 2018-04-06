@@ -53,7 +53,7 @@ public abstract class AbstractDeepStructure extends MapGenStructure implements S
 	}
 
 	@Override
-	public abstract boolean canSpawnStructureAtCoords(int chunkX, int chunkZ);
+	public abstract boolean canSpawnStructureAtCoords2(int chunkX, int chunkZ);
 
 	protected abstract ItemStack holdingItem();
 

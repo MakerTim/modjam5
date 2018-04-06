@@ -17,12 +17,16 @@ import net.modjam5.makercommunity.util.MapStructureHelper;
 public class DeepStructure extends AbstractDeepStructure {
 
 	@Override
+	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+		return canSpawnStructureAtCoords2(chunkX, chunkZ);
+	}
+	@Override
 	public String getStructureName() {
 		return "Deep";
 	}
 
 	@Override
-	public boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+	public boolean canSpawnStructureAtCoords2(int chunkX, int chunkZ) {
 		if (Math.abs(chunkX) < 40 || Math.abs(chunkZ) < 40) {
 			return false;
 		}

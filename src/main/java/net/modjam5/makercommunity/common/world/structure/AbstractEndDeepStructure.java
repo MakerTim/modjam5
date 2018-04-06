@@ -17,12 +17,16 @@ public abstract class AbstractEndDeepStructure extends AbstractDeepStructure {
 	protected static final int[] distance = new int[]{15, 10, 8, 5, 1, 0};
 
 	@Override
+	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+		return canSpawnStructureAtCoords2(chunkX, chunkZ);
+	}
+	@Override
 	public abstract String getStructureName();
 
 	protected abstract int chunksDistance();
 
 	@Override
-	public boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+	public boolean canSpawnStructureAtCoords2(int chunkX, int chunkZ) {
 		chunkZ -= distance[chunksDistance()];
 		return EndStructure.canSpawnStructureAtCoords(world, chunkX, chunkZ);
 	}

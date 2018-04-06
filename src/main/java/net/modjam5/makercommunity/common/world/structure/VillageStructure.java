@@ -38,6 +38,10 @@ public class VillageStructure extends MapGenStructure implements Structure {
 	private int distance = 32;
 
 	@Override
+	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+		return canSpawnStructureAtCoords2(chunkX, chunkZ);
+	}
+	@Override
 	public void updateWorld(World world) {
 		this.world = world;
 	}
@@ -62,7 +66,7 @@ public class VillageStructure extends MapGenStructure implements Structure {
 	}
 
 	@Override
-	public boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+	public boolean canSpawnStructureAtCoords2(int chunkX, int chunkZ) {
 		int i = chunkX;
 		int j = chunkZ;
 
