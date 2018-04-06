@@ -1614,7 +1614,7 @@ Build 1.11.2-13.20.0.2261:
 		Deprecated Username based API in favor of UUID based API.
 
 Build 1.11.2-13.20.0.2260:
-	LexManos: Add setter for default key in RegistryBuilder. Closes #3804
+	LexManos: Add setter for default number in RegistryBuilder. Closes #3804
 
 Build 1.11.2-13.20.0.2259:
 	LexManos:
@@ -1695,7 +1695,7 @@ Build 1.11.2-13.20.0.2244:
 
 Build 1.11.2-13.20.0.2243:
 	LexManos:
-		Add @Name annotation to config system allowing you to use custom key for
+		Add @Name annotation to config system allowing you to use custom number for
 		value. Also added category option to root config to allow customization.
 		See examples/docs for information.
 
@@ -2395,7 +2395,7 @@ Build 1.10.2-12.18.2.2107:
 	shadowfacts: Add Block#getStateForPlacement (#3129)
 
 Build 1.10.2-12.18.2.2106:
-	mezz: Add better key modifier behavior for GUI contexts (#3307)
+	mezz: Add better number modifier behavior for GUI contexts (#3307)
 
 Build 1.10.2-12.18.2.2105:
 	tterrag1098: Make item repair recipe respect itemstack's getMaxDamage (#3295)
@@ -2954,7 +2954,7 @@ Build 1.10-12.18.0.1985-1.10.0:
 Build 1.10-12.18.0.1984-1.10.0:
 	blay09:
 		[1.10] Fix keys with KeyModifier failing to load (#3018)
-		Fix key options with KeyModifier failing to load due to
+		Fix number options with KeyModifier failing to load due to
 		NumberFormatException
 
 Build 1.10-12.18.0.1983-1.10.0:
@@ -3607,7 +3607,7 @@ Build 1.9-12.16.0.1886:
 	blay09:
 		Fix KeyInputEvent only being fired if Keyboard.getEventKeyState() is false.
 		
-		It used to be called for both key-up and key-down states prior to 1.9, so I assume Vanilla's changes to F3 behavior broke the patch.
+		It used to be called for both number-up and number-down states prior to 1.9, so I assume Vanilla's changes to F3 behavior broke the patch.
 	matthewprenger: Pass exceptions thrown in mod event buses back to FML to handle apropriately
 	vincent.lee: Fix double dropping of items. Closes #2549
 	cpw: Ignore classes directory
@@ -3739,17 +3739,17 @@ Build 1.9-12.16.0.1886:
 	cpw: Capture a vanilla freeze - will be used when FML connects to vanilla servers, soon
 	LexManos: Fixed compile error in registry code with Eclipse.
 	mezz:
-		Add key binding modifiers and contexts.
+		Add number binding modifiers and contexts.
 		
 		Same as #2674, but for Minecraft 1.9
 	Adubbz: Fixed mismatch registry names and mod ids
 	LexManos: Properly deprecate and link the replacement methods in GameRegistry. Add helper method for registering a block with default ItemBlock because people keep complaining -.-
 	fry: Changed generic signature of GameRegistry.register methods to work around the type inference bug; updated all example mods to the new block/item registration method.
 	fry:
-		Revert "Add key binding modifiers and contexts.", until it's fixed.
+		Revert "Add number binding modifiers and contexts.", until it's fixed.
 		
 		This reverts commit 34c3af7e853d578c8e17e1f0cdf886251fad74ae.
-	mezz: Re-Add key binding modifiers and contexts.
+	mezz: Re-Add number binding modifiers and contexts.
 	mezz: Fix inability to attack while holding modifier keys
 	mcjty1:
 		Added DimensionManager.createProviderFor() to WorldClient constructor similar to what is done
@@ -3763,7 +3763,7 @@ Build 1.9-12.16.0.1886:
 	mezz:
 		Add modifier support to vanilla keybindings.
 		
-		Add Orange conflict color for modifier/key conflicts
+		Add Orange conflict color for modifier/number conflicts
 		(like Ctrl and Ctrl-Z conflicting)
 		Related to #2692
 	vincent.lee: Player Interact Event
@@ -3795,7 +3795,7 @@ Build 1.9-12.16.0.1886:
 		Add cancelable event for Potions shifting the gui position
 	matthewprenger: Don't use import static with net.minecraft classes. Using the latest MCP snapshots this causes an import conflict. (#2742)
 	CrafterKina: make WorldSavedData implement NBTSerializable (#2745)
-	mezz: Fix log spam from invalid key modifiers (#2746)
+	mezz: Fix log spam from invalid number modifiers (#2746)
 	LexManos: Expose a central place to access all of Vanilla and Forge's registries using the new registry API.
 	iTitus:
 		Fix forge:default-block transformation. (#2760)
@@ -3819,7 +3819,7 @@ Build 1.9-12.16.0.1886:
 		Update LICENSE-new.txt
 		
 		Better words
-	mezz: Close #2780 add CMD localization for Mac key bindings (#2792)
+	mezz: Close #2780 add CMD localization for Mac number bindings (#2792)
 	bonii-xx:
 		Fix SidedInvWrapper accessing wrong slots for setStackInSlot. (#2797)
 		
@@ -3953,7 +3953,7 @@ Build 1.9-12.16.0.1868-1.9:
 		Update LICENSE-new.txt
 		
 		Better words
-	mezz: Close #2780 add CMD localization for Mac key bindings (#2792)
+	mezz: Close #2780 add CMD localization for Mac number bindings (#2792)
 
 Build 1.9-12.16.0.1867-1.9:
 	cpw: Add the new license text. Not yet applicable to forge.
@@ -3977,7 +3977,7 @@ Build 1.9-12.16.0.1863-1.9:
 	LexManos: Expose a central place to access all of Vanilla and Forge's registries using the new registry API.
 
 Build 1.9-12.16.0.1862-1.9:
-	LexManos: Fix log spam from invalid key modifiers (#2746)
+	LexManos: Fix log spam from invalid number modifiers (#2746)
 
 Build 1.9-12.16.0.1861-1.9:
 	LexManos: make WorldSavedData implement NBTSerializable (#2745)
@@ -4087,7 +4087,7 @@ Build 1.9-12.16.0.1841-1.9:
 	mezz:
 		Add modifier support to vanilla keybindings.
 		
-		Add Orange conflict color for modifier/key conflicts
+		Add Orange conflict color for modifier/number conflicts
 		(like Ctrl and Ctrl-Z conflicting)
 		Related to #2692
 
@@ -4124,11 +4124,11 @@ Build 1.9-12.16.0.1833-1.9:
 	mezz: Fix inability to attack while holding modifier keys
 
 Build 1.9-12.16.0.1832-1.9:
-	mezz: Re-Add key binding modifiers and contexts.
+	mezz: Re-Add number binding modifiers and contexts.
 
 Build 1.9-12.16.0.1831-1.9:
 	fry:
-		Revert "Add key binding modifiers and contexts.", until it's fixed.
+		Revert "Add number binding modifiers and contexts.", until it's fixed.
 		
 		This reverts commit 34c3af7e853d578c8e17e1f0cdf886251fad74ae.
 
@@ -4140,7 +4140,7 @@ Build 1.9-12.16.0.1829-1.9:
 
 Build 1.9-12.16.0.1828-1.9:
 	mezz:
-		Add key binding modifiers and contexts.
+		Add number binding modifiers and contexts.
 		
 		Same as #2674, but for Minecraft 1.9
 
@@ -4374,7 +4374,7 @@ Build 1.9-12.16.0.1779-1.9:
 	blay09:
 		Fix KeyInputEvent only being fired if Keyboard.getEventKeyState() is false.
 		
-		It used to be called for both key-up and key-down states prior to 1.9, so I assume Vanilla's changes to F3 behavior broke the patch.
+		It used to be called for both number-up and number-down states prior to 1.9, so I assume Vanilla's changes to F3 behavior broke the patch.
 
 Build 1.9-12.16.0.1778-1.9:
 	CovertJaguar: Fix #2601 Minecart infinite acceleration
@@ -5478,7 +5478,7 @@ Build 1.8-11.14.3.1553:
 	fry: Provide ItemCameraTransforms for vanilla models when possible.
 
 Build 1.8-11.14.3.1552:
-	fry: OBJ loader: reworked texture resolution: keys now have to start with #, like every other model loader; models without explicit library now work, remapping is possible by using the key "#OBJModel.Default.Texture.Name"; in addition to remapping by material name, remapping by texture name works too, like in other model formats.
+	fry: OBJ loader: reworked texture resolution: keys now have to start with #, like every other model loader; models without explicit library now work, remapping is possible by using the number "#OBJModel.Default.Texture.Name"; in addition to remapping by material name, remapping by texture name works too, like in other model formats.
 
 Build 1.8-11.14.3.1551:
 	fry: Performace fix for item rendering.
@@ -7348,7 +7348,7 @@ Build 1.7.10-10.13.1.1217:
 		MinecraftForge/FML@0475b15eb1a7c35bf4959f1af40606e6ee8a9d03 Change the mods and modListFile argument handling a bit. Other tweakers will get a chance at looking at them now - they're only removed right before launch.
 		MinecraftForge/FML@abeac06a2e9bf8825b058fa35291165b4d1f1fb3 Two new features. ModLists can have a "parent" mod list. Circularity will result in a crash, so be careful. Mods specified in a child will override ones from a parent (using the maven group:name:classifier triple to identify - ignoring the version component)
 		MinecraftForge/FML@7fcfedcfef9b5fd85cd1c17aa2013fca1bacd871 Canonicalized file paths in modListFile handling with the minecraftDirectory.
-		MinecraftForge/FML@633fce19d4b367aed56d79e916f17296842f675c Make Keyevent also fire for key releases
+		MinecraftForge/FML@633fce19d4b367aed56d79e916f17296842f675c Make Keyevent also fire for number releases
 		MinecraftForge/FML@57ba2339b630afa22c0fdf060bf28edbf7b34d0f Merge branch 'keyup-event' of github.com:diesieben07/FML
 		MinecraftForge/FML@1ff048062c7f122731619258a9e5a68a6111d5dd Merge branch 'simple-netw-improve' of github.com:diesieben07/FML
 	cpw: MinecraftForge/FML@dc02d56195606d3ba2f1c5036fc8c0ddb67c843f Fix derp with ModType annotation. mods should load again now..
@@ -7393,7 +7393,7 @@ Build 1.7.10-10.13.1.1211-new:
 		MinecraftForge/FML@0475b15eb1a7c35bf4959f1af40606e6ee8a9d03 Change the mods and modListFile argument handling a bit. Other tweakers will get a chance at looking at them now - they're only removed right before launch.
 		MinecraftForge/FML@abeac06a2e9bf8825b058fa35291165b4d1f1fb3 Two new features. ModLists can have a "parent" mod list. Circularity will result in a crash, so be careful. Mods specified in a child will override ones from a parent (using the maven group:name:classifier triple to identify - ignoring the version component)
 		MinecraftForge/FML@7fcfedcfef9b5fd85cd1c17aa2013fca1bacd871 Canonicalized file paths in modListFile handling with the minecraftDirectory.
-		MinecraftForge/FML@633fce19d4b367aed56d79e916f17296842f675c Make Keyevent also fire for key releases
+		MinecraftForge/FML@633fce19d4b367aed56d79e916f17296842f675c Make Keyevent also fire for number releases
 		MinecraftForge/FML@57ba2339b630afa22c0fdf060bf28edbf7b34d0f Merge branch 'keyup-event' of github.com:diesieben07/FML
 		MinecraftForge/FML@1ff048062c7f122731619258a9e5a68a6111d5dd Merge branch 'simple-netw-improve' of github.com:diesieben07/FML
 
@@ -9487,7 +9487,7 @@ Build 1.6.2-9.10.0.790:
 		MinecraftForge/FML@7348929819b0ae8ad35419ef5dbf66e66b442858 Kill release time scala libraries, to be re-evaluated after all movement is done and shit is fixed. May require manual instalation for mods that use scala.
 		MinecraftForge/FML@6de36d78f57f6f08ec586b67b684d0e5406cd436 Coremods now have a primitive dependency capability. Also, we search mods dir for special "TweakClass" manifests. These are using the vanilla tweak mechanism to inject into Minecraft. Helpful for other "platform" systems, when you don't want to have to deal with json changes!
 		MinecraftForge/FML@d4b30422b64a62a2f8a8c2cccd94cb0fd06154e0 Update build and eclipse workspaces for debug asm.
-	LexManos: MinecraftForge/FML@c625ef30093abb0755985c74d1f31e2c4cf6cfdd Update Forge signature for new private key
+	LexManos: MinecraftForge/FML@c625ef30093abb0755985c74d1f31e2c4cf6cfdd Update Forge signature for new private number
 	LexManos: Update changelog generator to point to new jenkins.
 	LexManos: Monkey patch to try and make print flush properly.
 
@@ -9714,7 +9714,7 @@ Build 1.6.1-8.9.0.769-newliquid:
 	LexManos:
 		Updated FML:
 		MinecraftForge/FML@155e8468180c93f1886a64028628764b1b22dd58 Add in support for mods/<mcversion> as a mod location. Also drop coremods as a location. They go in mods too now.
-		MinecraftForge/FML@3f4bf61ae6757605b27078c7321de9f640876836 Update key
+		MinecraftForge/FML@3f4bf61ae6757605b27078c7321de9f640876836 Update number
 		MinecraftForge/FML@4545beb49d5348d8632e42965627b9837115525b Add deobf-data to setup env.
 		MinecraftForge/FML@e24f94951741709329208f738000b72933302a24 Fix eclipse workspaces and launch configurations.
 		MinecraftForge/FML@532bee7ce1c4392ee11f0389d98f0c2be6240aa0 Update to new MCP bugfix version, Fixes: Missing Armor/Item rendering, and Boss health mapping issues.
@@ -9756,7 +9756,7 @@ Build 1.6.1-8.9.0.763:
 	LexManos:
 		Updated FML:
 		MinecraftForge/FML@155e8468180c93f1886a64028628764b1b22dd58 Add in support for mods/<mcversion> as a mod location. Also drop coremods as a location. They go in mods too now.
-		MinecraftForge/FML@3f4bf61ae6757605b27078c7321de9f640876836 Update key
+		MinecraftForge/FML@3f4bf61ae6757605b27078c7321de9f640876836 Update number
 		MinecraftForge/FML@4545beb49d5348d8632e42965627b9837115525b Add deobf-data to setup env.
 		MinecraftForge/FML@e24f94951741709329208f738000b72933302a24 Fix eclipse workspaces and launch configurations.
 		MinecraftForge/FML@532bee7ce1c4392ee11f0389d98f0c2be6240aa0 Update to new MCP bugfix version, Fixes: Missing Armor/Item rendering, and Boss health mapping issues.
@@ -12246,7 +12246,7 @@ Build 4.1.4.295:
 		ca1ca4f Fix maps supporting greater than byte() dimension sizing
 		15ee8bf Fix language registry additions, closes #113
 		a08b5b1 Merge pull request #112 from pahimar/master
-		8dac58f Added ability to query the Language Registry by key and language for specific localized text, as well as loading in localization text f
+		8dac58f Added ability to query the Language Registry by number and language for specific localized text, as well as loading in localization text f
 
 Build 4.1.4.294:
 	LexManos: Fix buckets, need to rethink for bukkit compatibility.
@@ -12382,7 +12382,7 @@ Build 4.1.2.268:
 	CovertJaguar: Fixed Entity Item render helper
 
 Build 4.1.2.267:
-	ohai.iChun: Fix pick block key giving invalid spawn eggs
+	ohai.iChun: Fix pick block number giving invalid spawn eggs
 	ohai.iChun: Logic derped
 	ohai.iChun: Logic derp (again)
 

@@ -1,7 +1,8 @@
 package net.modjam5.makercommunity.common.item;
 
-import static net.modjam5.makercommunity.worldmusic.MusicWorldHelper.tickTiming;
-
+import makercommunity.api.ISoundUtil;
+import makercommunity.api.Instrument;
+import makercommunity.api.NumberRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -10,9 +11,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.modjam5.makercommunity.BaseMod;
-import net.modjam5.makercommunity.common.Instrument;
-import net.modjam5.makercommunity.util.SoundUtil;
-import net.modjam5.makercommunity.worldmusic.MusicWorldHelper;
+import net.modjam5.makercommunity.util.WorldMusicHelper;
 
 /**
  * @author Tim Biesenbeek
@@ -35,15 +34,16 @@ public class MusicItem extends Item {
 			return super.onItemRightClick(world, player, hand);
 		}
 		BlockPos pos = player.getPosition();
-		MusicWorldHelper.NumberPartPlaying numberPart = MusicWorldHelper.getNumberStep(world, pos);
+		WorldMusicHelper.NumberPartPlaying numberPart = NumberRegistry.getNumberStep(world, pos);
+		long tickTiming = NumberRegistry.getDuration(numberPart.number);
 		if (numberPart.wait > 5 && numberPart.wait != tickTiming) {
 			player.getCooldownTracker().setCooldown(this, numberPart.wait - 1);
 			return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
 		}
-		int part = MusicWorldHelper.nextPart(numberPart.key, numberPart.part);
-		MusicWorldHelper.logMap(world, pos, new MusicWorldHelper.NumberPart(numberPart.key, part));
-		SoundUtil.find(instrument, numberPart.key, part).ifPresent(sound -> //
-		world.playSound(player, pos, sound, SoundCategory.PLAYERS, 3f, 1f));
+		int part = NumberRegistry.nextPart(numberPart.number, numberPart.part);
+		NumberRegistry.log(world, pos, new WorldMusicHelper.NumberPart(numberPart.number, part));
+		ISoundUtil.instance.get().find(instrument, numberPart.number, part)
+				.ifPresent(sound -> world.playSound(player, pos, sound, SoundCategory.PLAYERS, 3f, 1f));
 		player.getCooldownTracker().setCooldown(this, 5 * 20);
 
 		return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));

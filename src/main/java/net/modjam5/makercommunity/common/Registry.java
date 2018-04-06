@@ -2,6 +2,8 @@ package net.modjam5.makercommunity.common;
 
 import java.util.Arrays;
 
+import makercommunity.api.ISoundUtil;
+import makercommunity.api.NumberRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -21,6 +23,7 @@ import net.modjam5.makercommunity.common.command.LocateSubMineOfThieves;
 import net.modjam5.makercommunity.common.entity.EntityTriggerArmorStand;
 import net.modjam5.makercommunity.common.world.StructureRegister;
 import net.modjam5.makercommunity.util.SoundUtil;
+import net.modjam5.makercommunity.util.WorldMusicHelper;
 
 /**
  * @author Tim Biesenbeek
@@ -31,6 +34,8 @@ public class Registry {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(this);
+		NumberRegistry.helperCreator = WorldMusicHelper::new;
+		SoundUtil.instance.set(new SoundUtil());
 	}
 
 	public void init(FMLInitializationEvent event) {
@@ -38,8 +43,8 @@ public class Registry {
 			EntityTriggerArmorStand.class, "triggerarmorstand", 1, BaseMod.MODID, 64, 1, false);
 		GameRegistry.registerWorldGenerator((structureRegister = new StructureRegister()), 5);
 		BlockRegistry.registerTileEntity();
-		SoundUtil.register("portal_use");
-		SoundUtil.register("portal_ambient");
+		ISoundUtil.instance.get().register("portal_use");
+		ISoundUtil.instance.get().register("portal_ambient");
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
@@ -50,12 +55,10 @@ public class Registry {
 		ItemRegistry.register();
 		event.getRegistry().registerAll(ItemRegistry.items);
 		event.getRegistry().registerAll(ItemRegistry.recorders);
-		event.getRegistry()
-				.registerAll(Arrays.stream(BlockRegistry.blocks).map(ItemBlock::new)
-						.map(item -> (ItemBlock)item.setUnlocalizedName("item." + item.getBlock().getUnlocalizedName()))
-						.map(item -> (ItemBlock)item.setRegistryName("item." + item.getBlock().getUnlocalizedName()))
-						.map(item -> (ItemBlock)item.setCreativeTab(CreativeTabs.BUILDING_BLOCKS))
-						.toArray(ItemBlock[]::new));
+		event.getRegistry().registerAll(Arrays.stream(BlockRegistry.blocks).map(ItemBlock::new)
+				.map(item -> (ItemBlock) item.setUnlocalizedName("item." + item.getBlock().getUnlocalizedName()))
+				.map(item -> (ItemBlock) item.setRegistryName("item." + item.getBlock().getUnlocalizedName()))
+				.map(item -> (ItemBlock) item.setCreativeTab(CreativeTabs.BUILDING_BLOCKS)).toArray(ItemBlock[]::new));
 	}
 
 	@SubscribeEvent

@@ -17,6 +17,7 @@ import net.modjam5.makercommunity.common.tile.TileEntityPortal;
 /**
  * @author Tim Biesenbeek
  */
+@SuppressWarnings("deprecation")
 public class PortalBlock extends Block implements ITileEntityProvider {
 
 	private static final AxisAlignedBB NO_BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);

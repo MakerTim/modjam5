@@ -1,5 +1,8 @@
 package net.modjam5.makercommunity.client;
 
+import makercommunity.api.ISoundUtil;
+import makercommunity.api.Instrument;
+import makercommunity.api.NumberRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -12,14 +15,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.modjam5.makercommunity.BaseMod;
-import net.modjam5.makercommunity.client.tile.PortalTileEntitySpecialRenderer;
-import net.modjam5.makercommunity.common.Instrument;
 import net.modjam5.makercommunity.common.ItemRegistry;
 import net.modjam5.makercommunity.common.Registry;
 import net.modjam5.makercommunity.common.entity.EntityTriggerArmorStand;
-import net.modjam5.makercommunity.common.tile.TileEntityPortal;
-import net.modjam5.makercommunity.util.SoundUtil;
-import net.modjam5.makercommunity.worldmusic.MusicWorldHelper;
 
 /**
  * @author Tim Biesenbeek
@@ -55,14 +53,12 @@ public class ClientRegistry extends Registry {
 			ModelLoader.setCustomModelResourceLocation(item, 0,
 				new ModelResourceLocation(new ResourceLocation(BaseMod.MODID, "recorder"), null));
 		}
-		net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPortal.class,
-			new PortalTileEntitySpecialRenderer());
 	}
 
 	private void registerSounds() {
-		for (int i = 1; i <= MusicWorldHelper.NUMBERS; i++) {
+		for (int i = 1; i <= NumberRegistry.getRegisteredNumbersCount(); i++) {
 			for (Instrument instrument : Instrument.values()) {
-				SoundUtil.register(instrument, i);
+				ISoundUtil.instance.get().register(instrument, i);
 			}
 		}
 	}
