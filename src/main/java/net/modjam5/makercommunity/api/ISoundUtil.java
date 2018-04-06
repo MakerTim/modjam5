@@ -1,9 +1,9 @@
-package makercommunity.api;
+package net.modjam5.makercommunity.api;
 
 import java.util.Optional;
 
-import makercommunity.api.hack.NonFinal;
 import net.minecraft.util.SoundEvent;
+import net.modjam5.makercommunity.api.hack.NonFinal;
 
 /**
  * @author Tim Biesenbeek

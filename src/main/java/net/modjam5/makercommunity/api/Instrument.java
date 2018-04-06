@@ -1,4 +1,4 @@
-package makercommunity.api;
+package net.modjam5.makercommunity.api;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,7 +9,7 @@ import java.util.Set;
 public class Instrument {
 	private static final Set<Instrument> values = new HashSet<>();
 	public static final //
-	Instrument DRUMS = new Instrument("DRUMS"), //
+            Instrument DRUMS = new Instrument("DRUMS"), //
 			FLUTE = new Instrument("FLUTE"), //
 			GUITAR = new Instrument("GUITAR"), //
 			STEELDRUM = new Instrument("STEELDRUM"), //

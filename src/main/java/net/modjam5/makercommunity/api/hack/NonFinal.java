@@ -1,4 +1,4 @@
-package makercommunity.api.hack;
+package net.modjam5.makercommunity.api.hack;
 
 /**
  * @author Tim Biesenbeek
