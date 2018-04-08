@@ -1,17 +1,17 @@
 package net.modjam5.makercommunity.util;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Random;
-
-import makercommunity.api.ISoundUtil;
-import makercommunity.api.Instrument;
-import makercommunity.api.NumberRegistry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.modjam5.makercommunity.BaseMod;
+import net.modjam5.makercommunity.api.ISoundUtil;
+import net.modjam5.makercommunity.api.Instrument;
+import net.modjam5.makercommunity.api.NumberRegistry;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Random;
 
 /**
  * @author Tim Biesenbeek

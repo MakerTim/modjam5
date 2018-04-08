@@ -1,14 +1,14 @@
 package net.modjam5.makercommunity.util;
 
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.modjam5.makercommunity.api.IWorldMusicHelper;
+import net.modjam5.makercommunity.api.NumberRegistry;
+
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
-
-import makercommunity.api.IWorldMusicHelper;
-import makercommunity.api.NumberRegistry;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 /**
  * @author Tim Biesenbeek

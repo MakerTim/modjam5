@@ -1,15 +1,15 @@
 package net.modjam5.makercommunity.common.tile;
 
-import java.util.List;
-
-import makercommunity.api.ISoundUtil;
-import makercommunity.api.PortalBehaviour;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
+import net.modjam5.makercommunity.api.ISoundUtil;
+import net.modjam5.makercommunity.api.PortalBehaviour;
+
+import java.util.List;
 
 /**
  * @author Tim Biesenbeek

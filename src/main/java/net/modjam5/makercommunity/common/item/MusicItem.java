@@ -1,8 +1,5 @@
 package net.modjam5.makercommunity.common.item;
 
-import makercommunity.api.ISoundUtil;
-import makercommunity.api.Instrument;
-import makercommunity.api.NumberRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -11,6 +8,9 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.modjam5.makercommunity.BaseMod;
+import net.modjam5.makercommunity.api.ISoundUtil;
+import net.modjam5.makercommunity.api.Instrument;
+import net.modjam5.makercommunity.api.NumberRegistry;
 import net.modjam5.makercommunity.util.WorldMusicHelper;
 
 /**

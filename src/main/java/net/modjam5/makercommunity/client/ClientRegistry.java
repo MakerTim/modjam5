@@ -1,8 +1,5 @@
 package net.modjam5.makercommunity.client;
 
-import makercommunity.api.ISoundUtil;
-import makercommunity.api.Instrument;
-import makercommunity.api.NumberRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -15,6 +12,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.modjam5.makercommunity.BaseMod;
+import net.modjam5.makercommunity.api.ISoundUtil;
+import net.modjam5.makercommunity.api.Instrument;
+import net.modjam5.makercommunity.api.NumberRegistry;
 import net.modjam5.makercommunity.common.ItemRegistry;
 import net.modjam5.makercommunity.common.Registry;
 import net.modjam5.makercommunity.common.entity.EntityTriggerArmorStand;

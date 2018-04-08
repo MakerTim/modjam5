@@ -1,9 +1,5 @@
 package net.modjam5.makercommunity.common;
 
-import java.util.Arrays;
-
-import makercommunity.api.ISoundUtil;
-import makercommunity.api.NumberRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -19,11 +15,15 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.modjam5.makercommunity.BaseMod;
+import net.modjam5.makercommunity.api.ISoundUtil;
+import net.modjam5.makercommunity.api.NumberRegistry;
 import net.modjam5.makercommunity.common.command.LocateSubMineOfThieves;
 import net.modjam5.makercommunity.common.entity.EntityTriggerArmorStand;
 import net.modjam5.makercommunity.common.world.StructureRegister;
 import net.modjam5.makercommunity.util.SoundUtil;
 import net.modjam5.makercommunity.util.WorldMusicHelper;
+
+import java.util.Arrays;
 
 /**
  * @author Tim Biesenbeek
